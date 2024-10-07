@@ -2,7 +2,6 @@ import Modal from './components/Modal/Modal.tsx';
 import { useState } from 'react';
 import Alert from './components/UI/Alert/Alert.tsx';
 
-
 const App = () => {
 
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -29,7 +28,6 @@ const App = () => {
   }
 
 
-
   const arrayForModal = [
     {type: 'primary', label: 'Continue', onClick: () => console.log('clicked continue')},
     {type: 'danger', label: 'Close', onClick: () => console.log('clicked close')}
@@ -39,6 +37,8 @@ const App = () => {
     return (
     <button key={array.label} onClick={array.onClick} className={`btn btn-${array.type} mx-2`}>{array.label}</button>)
   }));
+
+
 
 
   return (
@@ -64,6 +64,7 @@ const App = () => {
       <Alert
         type='success'
         showAlert={showSecondAlert}
+        clickDismissAble={secondAlertBtn}
       />
     </>
   );

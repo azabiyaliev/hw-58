@@ -5,9 +5,10 @@ interface AlertProps {
   type: "primary" | "success" | "danger" | "warning";
   showAlert: boolean;
   onDismiss?: () => void;
+  clickDismissAble?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const Alert: React.FC<AlertProps> = ({type, showAlert, onDismiss}) => {
+const Alert: React.FC<AlertProps> = ({type, showAlert, onDismiss, clickDismissAble}) => {
 
   return (
     <>
@@ -15,7 +16,7 @@ const Alert: React.FC<AlertProps> = ({type, showAlert, onDismiss}) => {
       <div className='modal show'  style={{display: showAlert ? "block" : "none"}}>
         <div className='modal-dialog'>
           <div className="modal-content">
-            <div className={`d-flex justify-content-between rounded-2 bg-${type}`}>
+            <div className={`d-flex justify-content-between rounded-2 bg-${type}`} onClick={clickDismissAble}>
               <p className='m-2 p-2 rounded-2'>This is a {type} type alert</p>
               <button style={{display: onDismiss ? "block" : "none"}} onClick={onDismiss} type='button'
                       className="bg-warning border border-0 rounded-2">
